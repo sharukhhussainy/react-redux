@@ -6,8 +6,6 @@ import { useLogout } from "../../hooks/useLogout";
 function Navbar({ label = "myMoney" }) {
   const { user } = useAuthContext();
   const { logout } = useLogout();
-
-  console.log(user);
   return (
     <nav className={styles.navbar}>
       <ul>
@@ -25,11 +23,14 @@ function Navbar({ label = "myMoney" }) {
           </>
         )}
         {user && (
-          <li>
-            <button className="btn" onClick={logout}>
-              Logout
-            </button>
-          </li>
+          <>
+            <li>Hello, {user.displayName}</li>
+            <li>
+              <button className="btn" onClick={logout}>
+                Logout
+              </button>
+            </li>
+          </>
         )}
       </ul>
     </nav>

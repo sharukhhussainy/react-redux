@@ -3,12 +3,12 @@ import "firebase/firestore";
 import "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCI5aetKAIu0P5RX_Msg6dFP94R1oGdgC0",
-  authDomain: "myexpenses-a8209.firebaseapp.com",
-  projectId: "myexpenses-a8209",
-  storageBucket: "myexpenses-a8209.appspot.com",
-  messagingSenderId: "699415048200",
-  appId: "1:699415048200:web:5aad12bef86ed001c121bd",
+  apiKey: "AIzaSyBnv9IjsfyMZAkKrVQWK-n2yhNYXv9B2w8",
+  authDomain: "expensesv2-67fbe.firebaseapp.com",
+  projectId: "expensesv2-67fbe",
+  storageBucket: "expensesv2-67fbe.appspot.com",
+  messagingSenderId: "281196140358",
+  appId: "1:281196140358:web:b6a8d8f1e413856611f747",
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -16,4 +16,6 @@ firebase.initializeApp(firebaseConfig);
 const projectFirestore = firebase.firestore();
 const projectAuth = firebase.auth();
 
-export { projectFirestore, projectAuth };
+const timestamp = firebase.firestore.Timestamp;
+
+export { projectFirestore, projectAuth, timestamp };
