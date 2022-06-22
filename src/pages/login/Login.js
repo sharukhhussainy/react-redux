@@ -1,12 +1,16 @@
 import { useState } from "react";
+import { useLogin } from "../../hooks/useLogin";
 import styles from "./Login.module.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { login, error, isPending } = useLogin();
+
   const handleSumbit = (event) => {
     event.preventDefault();
+    login(email, password);
   };
   return (
     <form className={styles["login-form"]} onSubmit={handleSumbit}>
@@ -27,7 +31,13 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
       </label>
-      <button className="btn">Login</button>
+      {isPending && (
+        <button disabled className="btn">
+          Loading...
+        </button>
+      )}
+      {!isPending && <button className="btn">Login</button>}
+      {error && <p>{error}</p>}
     </form>
   );
 }
